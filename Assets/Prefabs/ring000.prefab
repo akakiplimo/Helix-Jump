@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3198219912067716915, guid: 0a7f2c2ce8e70cd4bbf3e10de5373c00, type: 3}
       propertyPath: m_Name
-      value: ring002
+      value: ring000
       objectReference: {fileID: 0}
     - target: {fileID: 3391195797224849883, guid: 0a7f2c2ce8e70cd4bbf3e10de5373c00, type: 3}
       propertyPath: m_Materials.Array.data[0]
