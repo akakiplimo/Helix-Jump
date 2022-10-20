@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
             // The ball hits the unsafe area
             GameManager.gameOver = true;
             audioManager.Play("game over");
-        } else if (materialName == "LastRing (Instance)")
+        } else if (materialName == "LastRing (Instance)" && !GameManager.levelCompleted)
         {
             // The ball hits the last ring
             GameManager.levelCompleted = true;
