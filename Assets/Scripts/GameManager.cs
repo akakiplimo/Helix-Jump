@@ -2,14 +2,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
     public static bool gameOver;
     public static bool levelCompleted;
+    public static bool isGameStarted;
+    public static bool mute = false;
 
     public GameObject gameOverPanel;
     public GameObject levelCompletedPanel;
+    public GameObject gamePlayPanel;
+    public GameObject startMenuPanel;
 
     public Slider gameProgressSlider;      
     public static int currentLevelIndex;
@@ -26,11 +31,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         noOfPassedRings = 0;
 
         Time.timeScale = 1;
-        gameOver = false;
-        levelCompleted = false;
+        isGameStarted = gameOver = levelCompleted = false;
     }
 
     // Update is called once per frame
@@ -43,6 +48,18 @@ public class GameManager : MonoBehaviour
         // Update the progress of the slider
         int progress = noOfPassedRings * 100 / FindObjectOfType<HelixManager>().noOfRings;
         gameProgressSlider.value = progress;
+
+        //
+        if (Input.GetMouseButtonDown(0) && !isGameStarted)
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
+            isGameStarted = true;
+            gamePlayPanel.SetActive(true);
+            startMenuPanel.SetActive(false);
+
+        }
 
         // Game Over Conditionals
         if (gameOver)
