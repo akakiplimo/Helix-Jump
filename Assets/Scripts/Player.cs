@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         if (materialName == "Safe (Instance)")
         {
             // The ball hits the safe area
-            Debug.Log("Ok");
+            //Debug.Log("Ok");
 
         } else if (materialName == "Unsafe (Instance)")
         {
